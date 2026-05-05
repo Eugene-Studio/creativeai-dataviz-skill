@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La grille de notation du Critique Créatif — Exemple CreativeAI Dataviz Skill</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    body {
+      background: #fafafa;
+      margin: 0;
+      padding: 2rem 0;
+    }
+    .source-note {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      padding: 0 1.25rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    .source-note a {
+      color: #cc1f1f;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<p class="source-note">
+  Exemple produit par le CreativeAI Dataviz Skill.
+  Article source : <a href="https://creativeai.fr/2026/04/20/gems-gemini-le-guide-complet-pour-les-directeurs-artistiques/" target="_blank">Gems Gemini : le guide complet pour les directeurs artistiques</a>.
+</p>
+
+<div class="cai-chart cai-chart--bar" id="cai-chart-grille-critique-9k2m">
+  <style>
+    #cai-chart-grille-critique-9k2m {
+      max-width: 760px;
+      margin: 2.5rem auto;
+      padding: 1.5rem 1.25rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      color: #111111;
+    }
+    #cai-chart-grille-critique-9k2m .cai-header { margin-bottom: 1.4rem; }
+    #cai-chart-grille-critique-9k2m .cai-kicker {
+      display: inline-flex; align-items: center;
+      margin-bottom: 0.65rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: #f7f7f7;
+      color: #cc1f1f;
+      font-size: 0.76rem; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    #cai-chart-grille-critique-9k2m .cai-title {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.45rem; line-height: 1.25;
+      color: #111111;
+    }
+    #cai-chart-grille-critique-9k2m .cai-lede {
+      margin: 0;
+      font-size: 0.96rem; line-height: 1.6;
+      color: #555555;
+    }
+    #cai-chart-grille-critique-9k2m .cai-canvas-wrap {
+      position: relative; width: 100%; height: 340px; margin: 0 auto;
+    }
+    #cai-chart-grille-critique-9k2m canvas {
+      display: block; width: 100% !important; height: 100% !important;
+    }
+    #cai-chart-grille-critique-9k2m .cai-note {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-left: 4px solid #111111;
+      border-radius: 6px;
+      background: #f7f7f7;
+      color: #333333;
+      font-size: 0.9rem; line-height: 1.55;
+    }
+    @media (max-width: 600px) {
+      #cai-chart-grille-critique-9k2m { padding: 1.1rem 0.9rem; border-radius: 12px; }
+      #cai-chart-grille-critique-9k2m .cai-title { font-size: 1.22rem; }
+      #cai-chart-grille-critique-9k2m .cai-canvas-wrap { height: 360px; }
+    }
+  </style>
+
+  <div class="cai-header">
+    <span class="cai-kicker">Gem Critique Créatif</span>
+    <h3 class="cai-title">La grille de notation sur 10 : 4 critères, 4 angles d'analyse</h3>
+    <p class="cai-lede">Le Gem Critique Créatif évalue chaque visuel sur quatre dimensions, chacune notée sur 10. Cette grille fonctionne aussi sans Gem : c'est un cadre de jugement réutilisable en réunion ou en revue créative.</p>
+  </div>
+
+  <div class="cai-canvas-wrap">
+    <canvas id="cai-chart-grille-critique-9k2m-canvas"></canvas>
+  </div>
+
+  <div class="cai-note"><strong>À retenir :</strong> Un bon visuel n'est jamais bon partout pareil. La force du verdict final tient à la lecture croisée des quatre scores, pas à leur moyenne. Un 9 en concept avec un 4 en exécution visuelle reste un projet à retravailler.</div>
+
+  <script>
+  (function () {
+    function init() {
+      var ctx = document.getElementById('cai-chart-grille-critique-9k2m-canvas');
+      if (!ctx || typeof Chart === 'undefined') return setTimeout(init, 200);
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [
+            ['Concept', 'originalité, pertinence, mémorabilité'],
+            ['Visuel', 'composition, palette, typographie'],
+            ['Stratégie', 'cohérence avec le positionnement de marque'],
+            ['Émotion', 'impact, capacité d\u2019arrêt']
+          ],
+          datasets: [{
+            label: 'Échelle de notation',
+            data: [10, 10, 10, 10],
+            backgroundColor: [
+              'rgba(204, 31, 31, 0.92)',
+              'rgba(65, 65, 65, 0.88)',
+              'rgba(120, 120, 120, 0.82)',
+              'rgba(143, 21, 21, 0.92)'
+            ],
+            borderColor: [
+              'rgba(160, 0, 0, 1)',
+              'rgba(35, 35, 35, 1)',
+              'rgba(90, 90, 90, 1)',
+              'rgba(110, 0, 0, 1)'
+            ],
+            borderWidth: 1,
+            borderRadius: 8,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#111111',
+              titleColor: '#ffffff',
+              bodyColor: '#ffffff',
+              borderColor: '#cc1f1f',
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 6,
+              callbacks: {
+                title: function(items) { return items[0].label.split(',')[0]; },
+                label: function() { return 'Noté de 0 à 10'; }
+              }
+            }
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              max: 10,
+              grid: { color: 'rgba(0,0,0,0.08)' },
+              ticks: {
+                color: '#666666',
+                font: { size: 11 },
+                stepSize: 2,
+                callback: function(v) { return v + '/10'; }
+              },
+              title: {
+                display: true,
+                text: 'Échelle de notation',
+                color: '#333333',
+                font: { size: 12 }
+              }
+            },
+            y: {
+              grid: { display: false },
+              ticks: {
+                color: '#111111',
+                font: { size: 12, weight: '500' }
+              }
+            }
+          }
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les 5 piliers d'un Custom GPT face aux Gems — Exemple CreativeAI Dataviz Skill</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    body {
+      background: #fafafa;
+      margin: 0;
+      padding: 2rem 0;
+    }
+    .source-note {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      padding: 0 1.25rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    .source-note a {
+      color: #cc1f1f;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<p class="source-note">
+  Exemple produit par le CreativeAI Dataviz Skill.
+  Article source : <a href="https://creativeai.fr/guides-outils-templates/custom-gpts-le-guide-complet-pour-directeurs-artistiques/" target="_blank">Custom GPTs : le guide complet pour les directeurs artistiques</a>.
+</p>
+
+<div class="cai-chart cai-chart--bar" id="cai-chart-piliers-gpt-vs-gem-7f3a">
+  <style>
+    #cai-chart-piliers-gpt-vs-gem-7f3a {
+      max-width: 760px;
+      margin: 2.5rem auto;
+      padding: 1.5rem 1.25rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      color: #111111;
+    }
+    #cai-chart-piliers-gpt-vs-gem-7f3a .cai-header { margin-bottom: 1.4rem; }
+    #cai-chart-piliers-gpt-vs-gem-7f3a .cai-kicker {
+      display: inline-flex; align-items: center;
+      margin-bottom: 0.65rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: #f7f7f7;
+      color: #cc1f1f;
+      font-size: 0.76rem; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    #cai-chart-piliers-gpt-vs-gem-7f3a .cai-title {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.45rem; line-height: 1.25;
+      color: #111111;
+    }
+    #cai-chart-piliers-gpt-vs-gem-7f3a .cai-lede {
+      margin: 0;
+      font-size: 0.96rem; line-height: 1.6;
+      color: #555555;
+    }
+    #cai-chart-piliers-gpt-vs-gem-7f3a .cai-canvas-wrap {
+      position: relative; width: 100%; height: 340px; margin: 0 auto;
+    }
+    #cai-chart-piliers-gpt-vs-gem-7f3a canvas {
+      display: block; width: 100% !important; height: 100% !important;
+    }
+    #cai-chart-piliers-gpt-vs-gem-7f3a .cai-note {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-left: 4px solid #111111;
+      border-radius: 6px;
+      background: #f7f7f7;
+      color: #333333;
+      font-size: 0.9rem; line-height: 1.55;
+    }
+    @media (max-width: 600px) {
+      #cai-chart-piliers-gpt-vs-gem-7f3a { padding: 1.1rem 0.9rem; border-radius: 12px; }
+      #cai-chart-piliers-gpt-vs-gem-7f3a .cai-title { font-size: 1.22rem; }
+      #cai-chart-piliers-gpt-vs-gem-7f3a .cai-canvas-wrap { height: 320px; }
+    }
+  </style>
+
+  <div class="cai-header">
+    <span class="cai-kicker">Custom GPTs vs Gems Gemini</span>
+    <h3 class="cai-title">Les 5 piliers d'un Custom GPT face aux Gems</h3>
+    <p class="cai-lede">Sur les cinq leviers de configuration d'un Custom GPT, les Gems Gemini n'en couvrent que deux pleinement. L'écart n'est pas marginal, il est structurel.</p>
+  </div>
+
+  <div class="cai-canvas-wrap">
+    <canvas id="cai-chart-piliers-gpt-vs-gem-7f3a-canvas"></canvas>
+  </div>
+
+  <div class="cai-note"><strong>À retenir :</strong> Les Custom GPTs sont une plateforme de configuration ; les Gems sont un cadre de prompt. Notation 0&nbsp;=&nbsp;absent, 1&nbsp;=&nbsp;partiel, 2&nbsp;=&nbsp;présent, basée sur les fonctionnalités décrites par OpenAI et Google dans leurs documentations respectives.</div>
+
+  <script>
+  (function () {
+    function init() {
+      var ctx = document.getElementById('cai-chart-piliers-gpt-vs-gem-7f3a-canvas');
+      if (!ctx || typeof Chart === 'undefined') return setTimeout(init, 200);
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Instructions', 'Knowledge', 'Capabilities', 'Conversation Starters', 'Custom Actions'],
+          datasets: [
+            {
+              label: 'Custom GPT',
+              data: [2, 2, 2, 2, 2],
+              backgroundColor: 'rgba(204, 31, 31, 0.92)',
+              borderColor: 'rgba(160, 0, 0, 1)',
+              borderWidth: 1,
+              borderRadius: 8,
+              borderSkipped: false
+            },
+            {
+              label: 'Gem Gemini',
+              data: [2, 1, 1, 0, 0],
+              backgroundColor: 'rgba(65, 65, 65, 0.88)',
+              borderColor: 'rgba(35, 35, 35, 1)',
+              borderWidth: 1,
+              borderRadius: 8,
+              borderSkipped: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 12, boxHeight: 12, padding: 14, color: '#111111', font: { size: 12 } }
+            },
+            tooltip: {
+              backgroundColor: '#111111',
+              titleColor: '#ffffff',
+              bodyColor: '#ffffff',
+              borderColor: '#cc1f1f',
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 6,
+              callbacks: {
+                label: function(context) {
+                  var labels = ['absent', 'partiel', 'présent'];
+                  return context.dataset.label + ' : ' + labels[context.parsed.y];
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#111111', font: { size: 12, weight: '500' } }
+            },
+            y: {
+              beginAtZero: true,
+              max: 2,
+              grid: { color: 'rgba(0,0,0,0.08)' },
+              ticks: {
+                color: '#666666',
+                font: { size: 11 },
+                stepSize: 1,
+                callback: function(value) {
+                  return ['absent', 'partiel', 'présent'][value] || '';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</div>
+
+</body>
+</html>
